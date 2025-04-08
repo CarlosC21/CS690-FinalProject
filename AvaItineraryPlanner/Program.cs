@@ -1,113 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace AvaItineraryPlanner
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        // Define the starting budget for the trip
+        Console.WriteLine("Enter starting budget for the trip:");
+        double startingBudget = Convert.ToDouble(Console.ReadLine());
+        Budget tripBudget = new Budget(startingBudget);
+
+        // Create a trip
+        Console.WriteLine("Enter the trip name:");
+        string tripName = Console.ReadLine();
+        Console.WriteLine("Enter the start date (yyyy-mm-dd):");
+        DateTime startDate = DateTime.Parse(Console.ReadLine());
+        Console.WriteLine("Enter the end date (yyyy-mm-dd):");
+        DateTime endDate = DateTime.Parse(Console.ReadLine());
+        Trip myTrip = new Trip(tripName, startDate, endDate, startingBudget);
+
+        // Add cities and activities
+        bool addCities = true;
+        while (addCities)
         {
-            Console.WriteLine("Welcome to Itinerary Planner!");
+            Console.WriteLine("\nEnter a city name for your trip:");
+            string cityName = Console.ReadLine();
+            City city = new City(cityName);
 
-            // Placeholder for starting the main functionality
-            var planner = new ItineraryPlanner();
-
-            planner.CreateTrip("Vacation!");
-            planner.AddDestination("London", new List<string> { "Big Ben", "Stamford Bridge", "English Tea" });
-            planner.AddDestination("Rome", new List<string> { "Colosseum", "Visit Vatican", "Eat local food" });
-
-            planner.SetBudget(10000);
-
-            planner.TrackFlights("London", 450); 
-            planner.TrackFlights("Rome", 200);  
-
-            planner.TrackHotel("London", 130);   
-            planner.TrackHotel("Rome", 120);    
-
-            planner.DisplayItinerary();
-        }
-    }
-
-    // Core Planner class
-    public class ItineraryPlanner
-    {
-        private string tripName;
-        private double budget;
-        private List<Destination> destinations;
-        private Dictionary<string, double> flightPrices;
-        private Dictionary<string, double> hotelPrices;
-
-        public ItineraryPlanner()
-        {
-            destinations = new List<Destination>();
-            flightPrices = new Dictionary<string, double>();
-            hotelPrices = new Dictionary<string, double>();
-        }
-
-        public void CreateTrip(string name)
-        {
-            tripName = name;
-            Console.WriteLine($"Trip '{tripName}' created successfully!");
-        }
-
-        public void SetBudget(double amount)
-        {
-            budget = amount;
-            Console.WriteLine($"Budget set to ${budget}.");
-        }
-
-        public void AddDestination(string city, List<string> activities)
-        {
-            var destination = new Destination(city, activities);
-            destinations.Add(destination);
-            Console.WriteLine($"Destination {city} added with {activities.Count} activities.");
-        }
-
-        public void TrackFlights(string destination, double price)
-        {
-            flightPrices[destination] = price;
-            Console.WriteLine($"Flight to {destination} tracked with price ${price}.");
-        }
-
-        public void TrackHotel(string destination, double pricePerNight)
-        {
-            hotelPrices[destination] = pricePerNight;
-            Console.WriteLine($"Hotel in {destination} tracked with price ${pricePerNight} per night.");
-        }
-
-        public void DisplayItinerary()
-        {
-            Console.WriteLine($"\nItinerary for Trip '{tripName}':");
-            foreach (var destination in destinations)
+            bool addActivities = true;
+            while (addActivities)
             {
-                Console.WriteLine($"- {destination.City}:");
-                foreach (var activity in destination.Activities)
-                {
-                    Console.WriteLine($"  - {activity}");
-                }
-                if (flightPrices.ContainsKey(destination.City))
-                {
-                    Console.WriteLine($"  Flight Price: ${flightPrices[destination.City]}");
-                }
-                if (hotelPrices.ContainsKey(destination.City))
-                {
-                    Console.WriteLine($"  Hotel Price per Night: ${hotelPrices[destination.City]}");
-                }
+                Console.WriteLine("Enter activity name for this city:");
+                string activityName = Console.ReadLine();
+                Console.WriteLine("Enter the cost of the activity:");
+                double activityCost = Convert.ToDouble(Console.ReadLine());
+                city.AddActivity(new Activity(activityName, activityCost));
+
+                Console.WriteLine("Would you like to add another activity? (y/n)");
+                string response = Console.ReadLine().ToLower();
+                if (response != "y") addActivities = false;
             }
-            Console.WriteLine($"\nTotal Budget: ${budget}");
+
+            myTrip.AddCity(city);
+
+            Console.WriteLine("Would you like to add another city? (y/n)");
+            string cityResponse = Console.ReadLine().ToLower();
+            if (cityResponse != "y") addCities = false;
         }
-    }
 
-    // Destination class to hold city and activities
-    public class Destination
-    {
-        public string City { get; set; }
-        public List<string> Activities { get; set; }
+        // Display the trip itinerary
+        myTrip.DisplayItinerary();
 
-        public Destination(string city, List<string> activities)
+        // Track expenses and update budget
+        foreach (var city in myTrip.Cities)
         {
-            City = city;
-            Activities = activities;
+            foreach (var activity in city.Activities)
+            {
+                tripBudget.AddExpense(activity.Cost);
+            }
         }
+
+        // Display updated budget
+        tripBudget.DisplayBudget();
     }
 }

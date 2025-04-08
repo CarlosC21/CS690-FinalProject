@@ -1,0 +1,15 @@
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\bin\Release\net8.0\win-x64\AvaItineraryPlanner.exe
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\bin\Release\net8.0\win-x64\AvaItineraryPlanner.deps.json
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\bin\Release\net8.0\win-x64\AvaItineraryPlanner.runtimeconfig.json
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\bin\Release\net8.0\win-x64\AvaItineraryPlanner.dll
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\bin\Release\net8.0\win-x64\AvaItineraryPlanner.pdb
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.AssemblyInfoInputs.cache
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.AssemblyInfo.cs
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.csproj.CoreCompileInputs.cache
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.sourcelink.json
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.dll
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\refint\AvaItineraryPlanner.dll
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.pdb
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\AvaItineraryPlanner.genruntimeconfig.cache
+C:\Users\Trader\CS690-FinalProject\AvaItineraryPlanner\obj\Release\net8.0\win-x64\ref\AvaItineraryPlanner.dll

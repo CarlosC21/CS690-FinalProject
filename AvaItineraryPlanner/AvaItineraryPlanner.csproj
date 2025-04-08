@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>  <!-- Ensure net8.0 is specified -->
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers> <!-- Include win-x64 for the platform -->
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
+
+</Project>

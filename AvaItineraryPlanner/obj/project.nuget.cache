@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "tmdI0IdjMWs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Trader\\CS690-FinalProject\\AvaItineraryPlanner\\AvaItineraryPlanner.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Trader\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.14\\microsoft.netcore.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\Trader\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.14\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\Trader\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.14\\microsoft.aspnetcore.app.runtime.win-x64.8.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

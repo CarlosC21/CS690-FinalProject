@@ -6,14 +6,14 @@ public class Trip
     public string Name { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public double Budget { get; set; }
     public List<City> Cities { get; set; }
+    public double Budget { get; set; }
 
-    public Trip(string name, DateTime startDate, DateTime endDate, double budget)
+    public Trip(string name, DateTime start, DateTime end, double budget)
     {
         Name = name;
-        StartDate = startDate;
-        EndDate = endDate;
+        StartDate = start;
+        EndDate = end;
         Budget = budget;
         Cities = new List<City>();
     }
@@ -25,13 +25,16 @@ public class Trip
 
     public void DisplayItinerary()
     {
-        Console.WriteLine($"Trip: {Name}");
-        Console.WriteLine($"From: {StartDate.ToShortDateString()} To: {EndDate.ToShortDateString()}");
-        Console.WriteLine($"Budget: ${Budget}");
-        Console.WriteLine("\nCities and Activities:");
+        Console.WriteLine($"\nTrip: {Name} ({StartDate.ToShortDateString()} - {EndDate.ToShortDateString()})");
         foreach (var city in Cities)
         {
-            city.DisplayCityDetails();
+            Console.WriteLine($"\nCity: {city.Name}, Country: {city.Country}");
+            Console.WriteLine($"Accommodation: ${city.AccommodationCost}");
+            Console.WriteLine("Activities:");
+            foreach (var activity in city.Activities)
+            {
+                Console.WriteLine($"- {activity.Name} (${activity.Cost})");
+            }
         }
     }
 }

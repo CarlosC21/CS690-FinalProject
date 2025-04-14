@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "AvaItineraryPlanner/1.0.0": {
+      "AvaItineraryPlanner/2.0.0": {
         "runtime": {
           "AvaItineraryPlanner.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "AvaItineraryPlanner/1.0.0": {
+    "AvaItineraryPlanner/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

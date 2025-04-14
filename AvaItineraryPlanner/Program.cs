@@ -1,65 +1,111 @@
 ﻿using System;
+using System.Collections.Generic;
 
-class Program
+namespace AvaItineraryPlanner
 {
-    static void Main(string[] args)
+    class Program
     {
-        // Define the starting budget for the trip
-        Console.WriteLine("Enter starting budget for the trip:");
-        double startingBudget = Convert.ToDouble(Console.ReadLine());
-        Budget tripBudget = new Budget(startingBudget);
-
-        // Create a trip
-        Console.WriteLine("Enter the trip name:");
-        string tripName = Console.ReadLine();
-        Console.WriteLine("Enter the start date (yyyy-mm-dd):");
-        DateTime startDate = DateTime.Parse(Console.ReadLine());
-        Console.WriteLine("Enter the end date (yyyy-mm-dd):");
-        DateTime endDate = DateTime.Parse(Console.ReadLine());
-        Trip myTrip = new Trip(tripName, startDate, endDate, startingBudget);
-
-        // Add cities and activities
-        bool addCities = true;
-        while (addCities)
+        static void Main(string[] args)
         {
-            Console.WriteLine("\nEnter a city name for your trip:");
-            string cityName = Console.ReadLine();
-            City city = new City(cityName);
+            Console.WriteLine("Welcome to Ava's Itinerary Planner!");
 
-            bool addActivities = true;
-            while (addActivities)
+            // Get starting budget
+            Console.Write("Enter your starting budget: ");
+            decimal budget = decimal.Parse(Console.ReadLine());
+
+            // Ask for country once
+            Console.Write("Enter the country you're planning to visit: ");
+            string country = Console.ReadLine();
+
+            List<City> cities = new List<City>();
+            decimal totalAccommodationCost = 0;
+            decimal totalActivityCost = 0;
+
+            bool addMoreCities = true;
+
+            while (addMoreCities)
             {
-                Console.WriteLine("Enter activity name for this city:");
-                string activityName = Console.ReadLine();
-                Console.WriteLine("Enter the cost of the activity:");
-                double activityCost = Convert.ToDouble(Console.ReadLine());
-                city.AddActivity(new Activity(activityName, activityCost));
+                Console.Write($"\nEnter a city name in {country}: ");
+                string cityName = Console.ReadLine();
 
-                Console.WriteLine("Would you like to add another activity? (y/n)");
-                string response = Console.ReadLine().ToLower();
-                if (response != "y") addActivities = false;
+                Console.Write($"Enter the number of days you plan to stay in {cityName}: ");
+                int days = int.Parse(Console.ReadLine());
+
+                Console.Write($"Enter the total accommodation cost for your stay in {cityName}: ");
+                decimal accommodationCost = decimal.Parse(Console.ReadLine());
+
+                totalAccommodationCost += accommodationCost;
+
+                // Activities input with costs
+                List<Activity> activities = new List<Activity>();
+                bool addMoreActivities = true;
+                Console.WriteLine($"Enter activities you plan to do in {cityName}:");
+                while (addMoreActivities)
+                {
+                    Console.Write("- Activity: ");
+                    string activityName = Console.ReadLine();
+
+                    Console.Write($"  Enter the cost of {activityName}: ");
+                    decimal activityCost = decimal.Parse(Console.ReadLine());
+
+                    activities.Add(new Activity { Name = activityName, Cost = activityCost });
+
+                    totalActivityCost += activityCost;
+
+                    Console.Write("Add another activity? (y/n): ");
+                    string activityResponse = Console.ReadLine().ToLower();
+                    addMoreActivities = activityResponse == "y";
+                }
+
+                cities.Add(new City
+                {
+                    Name = cityName,
+                    Days = days,
+                    AccommodationCost = accommodationCost,
+                    Activities = activities
+                });
+
+                Console.Write("Would you like to add another city? (y/n): ");
+                string cityResponse = Console.ReadLine().ToLower();
+                addMoreCities = cityResponse == "y";
             }
 
-            myTrip.AddCity(city);
-
-            Console.WriteLine("Would you like to add another city? (y/n)");
-            string cityResponse = Console.ReadLine().ToLower();
-            if (cityResponse != "y") addCities = false;
-        }
-
-        // Display the trip itinerary
-        myTrip.DisplayItinerary();
-
-        // Track expenses and update budget
-        foreach (var city in myTrip.Cities)
-        {
-            foreach (var activity in city.Activities)
+            // Summary
+            Console.WriteLine("\nHere’s your itinerary:");
+            foreach (var city in cities)
             {
-                tripBudget.AddExpense(activity.Cost);
+                Console.WriteLine($"\n- {city.Name} ({city.Days} days)");
+                Console.WriteLine($"  Accommodation Cost: ${city.AccommodationCost}");
+                Console.WriteLine("  Activities:");
+                foreach (var activity in city.Activities)
+                {
+                    Console.WriteLine($"    • {activity.Name} - ${activity.Cost}");
+                }
             }
-        }
 
-        // Display updated budget
-        tripBudget.DisplayBudget();
+            decimal totalCost = totalAccommodationCost + totalActivityCost;
+            decimal remainingBudget = budget - totalCost;
+
+            Console.WriteLine($"\nTotal Accommodation Cost: ${totalAccommodationCost}");
+            Console.WriteLine($"Total Activity Cost: ${totalActivityCost}");
+            Console.WriteLine($"Total Trip Cost: ${totalCost}");
+            Console.WriteLine($"Remaining Budget: ${remainingBudget}");
+
+            Console.WriteLine("\nSafe travels!");
+        }
+    }
+
+    class City
+    {
+        public string Name { get; set; }
+        public int Days { get; set; }
+        public decimal AccommodationCost { get; set; }
+        public List<Activity> Activities { get; set; }
+    }
+
+    class Activity
+    {
+        public string Name { get; set; }
+        public decimal Cost { get; set; }
     }
 }

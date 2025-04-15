@@ -2,10 +2,15 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework> 
-    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers> 
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
     <SelfContained>false</SelfContained>
-    <Version>2.0.0</Version> <!-- version tag -->
+    <Version>2.0.0</Version>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.4" />
+  </ItemGroup>
 
 </Project>

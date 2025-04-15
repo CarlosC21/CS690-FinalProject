@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaItineraryPlanner", "AvaItineraryPlanner.csproj", "{CF59790C-59E3-4518-977B-7D098666F953}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaItineraryPlanner.Tests", "AvaItineraryPlanner.Tests\AvaItineraryPlanner.Tests.csproj", "{7F4119B7-B340-44C3-B2D3-804FF28C8BF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,17 @@ Global
 		{CF59790C-59E3-4518-977B-7D098666F953}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF59790C-59E3-4518-977B-7D098666F953}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF59790C-59E3-4518-977B-7D098666F953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC9BDC8-9D65-4DCF-9483-FC33B079A56B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC9BDC8-9D65-4DCF-9483-FC33B079A56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC9BDC8-9D65-4DCF-9483-FC33B079A56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC9BDC8-9D65-4DCF-9483-FC33B079A56B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2758B797-1B94-4F16-86A5-62018DC18E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2758B797-1B94-4F16-86A5-62018DC18E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2758B797-1B94-4F16-86A5-62018DC18E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2758B797-1B94-4F16-86A5-62018DC18E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F4119B7-B340-44C3-B2D3-804FF28C8BF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F4119B7-B340-44C3-B2D3-804FF28C8BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F4119B7-B340-44C3-B2D3-804FF28C8BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F4119B7-B340-44C3-B2D3-804FF28C8BF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

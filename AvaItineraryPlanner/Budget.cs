@@ -1,25 +1,14 @@
-using System;
-
-public class Budget
+namespace AvaItineraryPlanner
 {
-    public double StartingAmount { get; set; }
-    public double RemainingAmount { get; set; }
-
-    public Budget(double startingAmount)
+    public class Budget
     {
-        StartingAmount = startingAmount;
-        RemainingAmount = startingAmount;
-    }
+        public decimal TotalBudget { get; set; }
+        public decimal DailyBudget { get; set; }
 
-    public void AddExpense(double expense)
-    {
-        RemainingAmount -= expense;
-        Console.WriteLine($"Expense Added: ${expense}. Remaining Budget: ${RemainingAmount}");
-    }
-
-    public void DisplayBudget()
-    {
-        Console.WriteLine($"Starting Budget: ${StartingAmount}");
-        Console.WriteLine($"Remaining Budget: ${RemainingAmount}");
+        public Budget(decimal totalBudget, decimal dailyBudget)
+        {
+            TotalBudget = totalBudget;
+            DailyBudget = dailyBudget;
+        }
     }
 }

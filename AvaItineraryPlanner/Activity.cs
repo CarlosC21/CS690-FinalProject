@@ -1,18 +1,12 @@
-using System;
-
 public class Activity
 {
     public string Name { get; set; }
-    public double Cost { get; set; }
+    public decimal Cost { get; set; }
+    public int Duration { get; set; }
 
-    public Activity(string name, double cost)
+    public Activity(string name, decimal cost)
     {
         Name = name;
         Cost = cost;
-    }
-
-    public void DisplayActivityDetails()
-    {
-        Console.WriteLine($"- {Name} ($ {Cost})");
     }
 }

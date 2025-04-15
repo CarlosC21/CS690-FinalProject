@@ -1,23 +1,28 @@
 using System;
 using System.Collections.Generic;
 
-public class City
+namespace AvaItineraryPlanner
 {
-    public string Name { get; set; }
-    public string Country { get; set; }
-    public List<Activity> Activities { get; set; }
-    public double AccommodationCost { get; set; }
-
-    public City(string name, string country)
+    public class City
     {
-        Name = name;
-        Country = country;
-        Activities = new List<Activity>();
-        AccommodationCost = 0;
-    }
+        public string Name { get; set; }
+        public string Country { get; set; }
+        public int Days { get; set; }
+        public string Accommodation { get; set; }
+        public decimal AccommodationCost { get; set; }
+        public decimal FlightCost { get; set; }
+        public List<Activity> Activities { get; set; }
 
-    public void AddActivity(Activity activity)
-    {
-        Activities.Add(activity);
+        // Constructor for City class
+        public City(string name, string country, int days, string accommodation, decimal accommodationCost, decimal flightCost, List<Activity> activities)
+        {
+            Name = name;
+            Country = country;
+            Days = days;
+            Accommodation = accommodation;
+            AccommodationCost = accommodationCost;
+            FlightCost = flightCost;
+            Activities = activities;
+        }
     }
 }

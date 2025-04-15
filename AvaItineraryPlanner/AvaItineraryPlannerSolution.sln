@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaItineraryPlanner", "AvaItineraryPlanner.csproj", "{CF59790C-59E3-4518-977B-7D098666F953}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaItineraryPlanner.Tests", "AvaItineraryPlanner.Tests\AvaItineraryPlanner.Tests.csproj", "{7F4119B7-B340-44C3-B2D3-804FF28C8BF2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
